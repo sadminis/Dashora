@@ -23,12 +23,16 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="grid items-center justify-items-center min-h-screen p-100 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="grid gap-[32px] items-center sm:items-start grid-cols-[repeat(4,minmax(200px,1fr))]">
+    <div className="grid items-center justify-items-center min-h-screen p-50 gap-5 sm:p-10 font-[family-name:var(--font-geist-sans)] grid-rows-[auto,1fr,auto]">
+      <header className="flex items-center justify-center w-full h-full row-start-1">
+        <h1 className="text-4xl font-bold">Dashora</h1>
+      </header>
+
+      <main className="gap-[16px] row-start-2 items-center sm:items-start w-full h-full">
         <RenderCards cards={cards} setCards={setCards} />
       </main>
       
-      <footer className="row-start-2 flex gap-[24px] flex-wrap items-center justify-center">
+      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
           href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"

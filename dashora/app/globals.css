@@ -24,3 +24,14 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.masonry-grid {
+  display: flex;
+  margin-left: -16px; /* Adjust based on your gap size */
+  width: auto;
+}
+
+.masonry-grid-column {
+  padding-left: 16px; /* Same as margin-left above */
+  background-clip: padding-box;
+}

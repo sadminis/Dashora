@@ -17,7 +17,7 @@ const AddNewCard = ( {title, content, cards, setCards} ) => {
     }
 
     return (
-        <div className='card cursor-pointer' onClick={handleClick}>
+        <div className='card cursor-pointer shadow-md' onClick={handleClick}>
             <h2>Add New Card</h2>
             <p>This will add new card.</p>
         </div>
