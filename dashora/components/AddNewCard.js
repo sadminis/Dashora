@@ -1,5 +1,9 @@
 import './Card.css';
 import React from 'react';
+import CustomDialog from './CustomDialogs';
+import { Box, Image, Text, Button, Dialog} from "@chakra-ui/react";
+import { Plus, FilePlus, FolderPlus, SquarePlus } from "lucide-react";
+
 
 const AddNewCard = ( {title, content, cards, setCards} ) => {
     function handleClick() {
@@ -17,10 +21,39 @@ const AddNewCard = ( {title, content, cards, setCards} ) => {
     }
 
     return (
-        <div className='card cursor-pointer shadow-md' onClick={handleClick}>
-            <h2>Add New Card</h2>
-            <p>This will add new card.</p>
-        </div>
+        <CustomDialog trigger={
+            <Box
+                    cursor="pointer"
+                    maxW="sm"
+                    borderWidth="1px"
+                    borderRadius="lg"
+                    overflow="hidden"
+                    boxShadow="sm"
+                    _hover={{ boxShadow: "md" }}
+                >
+                    <Box p="6" bg={'gray.100'} minH={"50vh"} Box display="flex" justifyContent="center" alignItems="center" flexDir={"column"}>
+                        <SquarePlus size={250} color='lightgray' />
+                        <Text fontSize="xl" fontWeight="bold" mt="8" textAlign="center" color="lightgray"> 
+                            {title}
+                        </Text>
+                    </Box>
+                </Box>
+            }
+            title="Add New Card"
+            footer={
+                <>
+                  <Dialog.ActionTrigger asChild>
+                    <Button variant="outline">Cancel</Button>
+                  </Dialog.ActionTrigger>
+                  <Dialog.ActionTrigger asChild>
+                    <Button>Save</Button>
+                  </Dialog.ActionTrigger>
+                </>
+            }
+        >
+            // TODO: Add sample card
+            <Text>Click to add a new card</Text>
+        </CustomDialog>
     );
 }
 
