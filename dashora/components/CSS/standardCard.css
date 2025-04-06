@@ -1,0 +1,30 @@
+.standardCard {
+    display: grid;
+    grid-template-rows: 3fr 1fr; /* 'lg' replaced with a valid CSS value */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-width: 1px;
+    border-radius: 8px; /* 'lg' replaced with a valid CSS value */
+    max-width: 24rem; /* 'sm' replaced with a valid CSS value */
+    overflow: hidden;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1); /* 'sm' replaced with a valid shadow */
+    background-color: #f7fafc; /* 'lightgray.100' replaced with a valid color */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Add smooth hover effect */
+    min-height: 50vh;
+}
+
+.standardCard:hover {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* 'md' replaced with a valid shadow */
+    transform: scale(1.01);
+}
+
+.standardCardImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0; /* 'lg' replaced with a valid CSS value */
+    padding: 10%;
+}

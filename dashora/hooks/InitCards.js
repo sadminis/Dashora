@@ -1,6 +1,3 @@
-import React from 'react';
-import Card from '../components/Card'; // Import the Card component
-
 function InitCards(cards, setCards) {
     // Load user pre-define cards from internet
 

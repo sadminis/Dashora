@@ -1,8 +1,9 @@
 import React from 'react';
 import Masonry from 'react-masonry-css';
 
-import Card from '@/components/Card'; // Import the Card component
 import AddNewCard from '@/components/AddNewCard';
+import SampleCard from '@/components/SampleCard';
+import "@/components/CSS/masonry.css";
 
 const breakpointColumnsObj = {
     default: 4, // 4 columns by default
@@ -26,7 +27,7 @@ function RenderCards( { cards, setCards }) {
                     );
                 } else {
                     return (
-                        <Card key={index} title={card.title} content={card.content} />
+                        <SampleCard key={index} title={card.title} content={card.content} />
                     );
                 }
             })}

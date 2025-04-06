@@ -1,7 +1,6 @@
 import {
     Dialog,
     Portal,
-    Button,
     CloseButton,
   } from "@chakra-ui/react";
   import { ReactNode } from "react";

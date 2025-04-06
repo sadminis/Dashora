@@ -4,8 +4,6 @@
 import Image from "next/image";
 
 // Components
-import Card from "@/components/Card";
-import AddNewCard from "@/components/AddNewCard";
 
 // Hooks
 import RenderCards from "@/hooks/RenderCards";
