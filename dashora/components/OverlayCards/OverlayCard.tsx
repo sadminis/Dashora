@@ -18,8 +18,6 @@ export default function OverlayCard({ svg, img, cardTitle, onClick }: OverlayCar
                                 {cardTitle}
                             </Heading>
                         </Box>;
-
-
     return (
         overlayCard
     );

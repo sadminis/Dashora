@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Responsive, WidthProvider } from 'react-grid-layout';
 import AddNewCard from '@/components/AddNewCard';
 import SampleCard from '@/components/SampleCard';
+import BilibiliCard from '@/components/BilibiliCard';
 import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
 
@@ -38,12 +39,13 @@ function RenderCards({ cards, setCards }) {
 
           if (!spotOccupied) {
             // 6. Add new card to this position
+            const newCard = cards[cards.length - 1];  // Get the last card added
             newLayouts[bp] = [...newLayouts[bp], {
               i: (cards.length - 1).toString(),
               x,
               y,
-              w: 1,
-              h: 2,
+              w: newCard.width || 1,  // Use card's width or default
+              h: newCard.height || 2,  // Use card's height or default
             }];
             foundSpot = true;
             break;
@@ -77,6 +79,8 @@ function RenderCards({ cards, setCards }) {
         <div key={index.toString()}>
           {card.title === "Add New Card" ? (
             <AddNewCard title={card.title} content={card.content} cards={cards} setCards={setCards} />
+          ) : card.title === "Bilibili" ? (
+            <BilibiliCard />
           ) : (
             <SampleCard {...card} />
           )}

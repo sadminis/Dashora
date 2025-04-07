@@ -7,38 +7,43 @@ import AddSample from './OverlayCards/AddSample';
 import "./CSS/standardCard.css";
 import "./CSS/clickable.css";
 import DragHandle from './DragHandle';
+import AddBiliBili from './OverlayCards/AddBiliBili';
 
 
 const AddNewCard = ( {title, content, cards, setCards} ) => {
     return (
-        <CustomDialog 
-            trigger={
-                <Box className="standardCard clickable">
-                    <DragHandle />
-                    <SquarePlus className='standardCardImage' color='lightgray' />
-                        <Heading as={"h2"} fontSize={"2xl"} color={"lightgray"} textAlign={"center"}>
-                            {title}
-                        </Heading>
-                </Box>
-            }
-            title="Add New Card"
-            footer={
-                <>
-                  <Dialog.ActionTrigger asChild>
-                    <Button variant="outline">Cancel</Button>
-                  </Dialog.ActionTrigger>
-                  <Dialog.ActionTrigger asChild>
-                    <Button>Save</Button>
-                  </Dialog.ActionTrigger>
-                </>
-            }
-        >
-            
-            <Box display={"grid"} gridTemplateColumns={"repeat(4, 1fr)"} gap={4} p={4}>
-                <AddCalendar cards={cards} setCards={setCards}/>
-                <AddSample cards={cards} setCards={setCards}/>
+        // AddNewCard.tsx
+        <CustomDialog
+        trigger={
+            <Box className="standardCard clickable">
+            <DragHandle hoverColor="#FFAAAA" />
+            <SquarePlus className='standardCardImage' color='lightgray' />
+            <Heading as="h2" fontSize="2xl" color="lightgray" textAlign="center">
+                {title}
+            </Heading>
             </Box>
+        }
+        title="Add New Card"
+        footer={
+            <>
+            <Dialog.ActionTrigger asChild>
+                <Button variant="outline">Cancel</Button>
+            </Dialog.ActionTrigger>
+            <Dialog.ActionTrigger asChild>
+                <Button>Save</Button>
+            </Dialog.ActionTrigger>
+            </>
+        }
+        >
+        {(onClose) => (
+            <Box display="grid" gridTemplateColumns="repeat(4, 1fr)" gap={4} p={4}>
+            <AddCalendar cards={cards} setCards={setCards} onClose={onClose} />
+            <AddBiliBili cards={cards} setCards={setCards} onClose={onClose} />
+            <AddSample cards={cards} setCards={setCards} onClose={onClose} />
+            </Box>
+        )}
         </CustomDialog>
+
     );
 }
 

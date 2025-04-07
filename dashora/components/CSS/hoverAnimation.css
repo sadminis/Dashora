@@ -1,0 +1,8 @@
+.hover-animation {
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Add smooth hover effect */
+}
+
+.hover-animation:hover {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* 'md' replaced with a valid shadow */
+    transform: scale(1.01);
+}
