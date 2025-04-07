@@ -1,38 +1,89 @@
-import React from 'react';
-import Masonry from 'react-masonry-css';
-
+import React, { useState, useEffect } from 'react';
+import { Responsive, WidthProvider } from 'react-grid-layout';
 import AddNewCard from '@/components/AddNewCard';
 import SampleCard from '@/components/SampleCard';
-import "@/components/CSS/masonry.css";
+import 'react-grid-layout/css/styles.css';
+import 'react-resizable/css/styles.css';
 
-const breakpointColumnsObj = {
-    default: 4, // 4 columns by default
-    1100: 3, // 3 columns for screen widths larger than 1100px
-    700: 2, // 2 columns for screen widths larger than 700px
-    500: 1, // 1 column for screen widths larger than 500px
+
+const ResponsiveGridLayout = WidthProvider(Responsive);
+
+function RenderCards({ cards, setCards }) {
+  // 1. Create storage for layouts
+  const [layouts, setLayouts] = useState({ lg: [], md: [], sm: [] });
+
+  // 2. Update layouts when cards change
+  useEffect(() => {
+    // Only run when new cards are added
+    if (cards.length <= Object.keys(layouts.lg).length) return;
+
+    // 3. Find first empty spot for new cards
+    const newLayouts = { lg: [...layouts.lg], md: [...layouts.md], sm: [...layouts.sm] };
+    
+    ['lg', 'md', 'sm'].forEach((bp) => {
+      const cols = { lg: 4, md: 2, sm: 1 }[bp];
+      const existingItems = newLayouts[bp];
+      
+      // 4. Check positions until we find empty space
+      let foundSpot = false;
+      let y = 0;
+      
+      while (!foundSpot) {
+        for (let x = 0; x < cols; x++) {
+          // 5. Check if this spot is empty
+          const spotOccupied = existingItems.some(item => 
+            item.x <= x && x < item.x + item.w &&
+            item.y <= y && y < item.y + item.h
+          );
+
+          if (!spotOccupied) {
+            // 6. Add new card to this position
+            newLayouts[bp] = [...newLayouts[bp], {
+              i: (cards.length - 1).toString(),
+              x,
+              y,
+              w: 1,
+              h: 2,
+            }];
+            foundSpot = true;
+            break;
+          }
+        }
+        if (!foundSpot) y++;
+      }
+    });
+
+    setLayouts(newLayouts);
+  }, [cards.length]);
+
+  // 7. Save layout changes made by user
+  const handleLayoutChange = (_, allLayouts) => {
+    setLayouts(allLayouts);
   };
 
-
-function RenderCards( { cards, setCards }) {
-    return (
-        <Masonry
-            breakpointCols={breakpointColumnsObj}
-            className="masonry-grid"
-            columnClassName="masonry-grid-column"
-        >
-            {cards.map((card, index) => {
-                if (card.title === "Add New Card" && card.content === "This will add new card.") {
-                    return (
-                        <AddNewCard key={index} title={card.title} content={card.content} cards={cards} setCards={setCards} />
-                    );
-                } else {
-                    return (
-                        <SampleCard key={index} title={card.title} content={card.content} />
-                    );
-                }
-            })}
-        </Masonry>
-    );
+  return (
+    <ResponsiveGridLayout
+      className="layout"
+      layouts={layouts}
+      breakpoints={{ lg: 1200, md: 996, sm: 768 }}
+      cols={{ lg: 4, md: 2, sm: 1 }}
+      rowHeight={150}
+      isDraggable={true}
+      isResizable={true}
+      draggableHandle=".drag-handle"
+      onLayoutChange={handleLayoutChange}
+    >
+      {cards.map((card, index) => (
+        <div key={index.toString()}>
+          {card.title === "Add New Card" ? (
+            <AddNewCard title={card.title} content={card.content} cards={cards} setCards={setCards} />
+          ) : (
+            <SampleCard {...card} />
+          )}
+        </div>
+      ))}
+    </ResponsiveGridLayout>
+  );
 }
 
 export default RenderCards;

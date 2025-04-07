@@ -12,10 +12,7 @@ export default function AddSample( {cards, setCards}: AddSampleProps) {
         const newCard = { title: "New Card", content: "This is a new card." };
     
         // Create a copy of the cards array
-        const updatedCards = [...cards];
-    
-        // Insert the new card at the second-to-last position
-        updatedCards.splice(updatedCards.length - 1, 0, newCard);
+        const updatedCards = [newCard, ...cards];
     
         // Update the state with the modified array
         setCards(updatedCards);

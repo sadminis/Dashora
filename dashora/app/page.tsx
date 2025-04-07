@@ -29,7 +29,9 @@ export default function Home() {
       </header>
 
       <main className="gap-[16px] row-start-2 items-center sm:items-start w-full h-full">
-        <RenderCards cards={cards} setCards={setCards} />
+        <div>
+          <RenderCards cards={cards} setCards={setCards} />
+        </div>
       </main>
       
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">

@@ -6,6 +6,7 @@ import AddCalendar from './OverlayCards/AddCalendar';
 import AddSample from './OverlayCards/AddSample';
 import "./CSS/standardCard.css";
 import "./CSS/clickable.css";
+import DragHandle from './DragHandle';
 
 
 const AddNewCard = ( {title, content, cards, setCards} ) => {
@@ -13,6 +14,7 @@ const AddNewCard = ( {title, content, cards, setCards} ) => {
         <CustomDialog 
             trigger={
                 <Box className="standardCard clickable">
+                    <DragHandle />
                     <SquarePlus className='standardCardImage' color='lightgray' />
                         <Heading as={"h2"} fontSize={"2xl"} color={"lightgray"} textAlign={"center"}>
                             {title}
