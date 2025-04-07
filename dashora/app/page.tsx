@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <div className="grid items-center justify-items-center min-h-screen" style={{ gridTemplateRows: "auto 1fr auto", padding: "32px" }}>
       <header className="flex items-center justify-center w-full h-full row-start-1">
-        <Heading as="h1" size={["xl", "3xl", "5xl"]} className="text-center" color={"#4A5568"} mt={10} mb={4}>
+        <Heading as="h1" size={["xl", "3xl", "5xl"]} className="text-center" color={"#4A5568"} mt={5} mb={10}>
           Dashora
         </Heading>
       </header>

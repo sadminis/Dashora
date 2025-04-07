@@ -12,8 +12,8 @@ export default function AddBiliBili( {cards, setCards, onClose} : AddBiliBiliPro
         const newCard = { 
             title: "Bilibili", 
             content: "This is a new card.",
-            width: 2,
-            height: 3,
+            width: 1,
+            height: 4,
          };
     
         // Create a copy of the cards array
