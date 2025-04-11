@@ -1,24 +1,25 @@
 import OverlayCard from "./OverlayCard";
+import { Search } from "lucide-react";
 
-interface AddBiliBiliProps {
+interface AddSearchBarProps {
     cards: any[]; // Replace 'any[]' with the specific type of your cards array
     setCards: React.Dispatch<React.SetStateAction<any[]>>; // Replace 'any[]' with the specific type
     onClose: () => void;
 }
 
-export default function AddBiliBili( {cards, setCards, onClose} : AddBiliBiliProps) {
+export default function AddSearchBar({ cards, setCards, onClose }: AddSearchBarProps) {
     function handleClick() {
         // Handle click event
-        const newCard = { 
-            title: "Bilibili", 
+        const newCard = {
+            title: "Search Bar",
             content: "This is a new card.",
             width: 2,
-            height: 4,
-         };
-    
+            height: 2,
+        };
+
         // Create a copy of the cards array
         const updatedCards = [...cards, newCard,];
-    
+
         // Update the state with the modified array
         setCards(updatedCards);
 
@@ -27,9 +28,9 @@ export default function AddBiliBili( {cards, setCards, onClose} : AddBiliBiliPro
 
     return (
         <OverlayCard svg={
-            <img src="https://upload.wikimedia.org/wikipedia/en/b/b7/Bilibili_logo.svg" color={"#FB7299"} alt="BiliBili Logo" className="w-full h-auto" />
+            <Search size={250} color='lightgray' />
         }
-        onClick={() => handleClick()}
-        cardTitle={"Add BiliBili"} />
+            onClick={() => handleClick()}
+            cardTitle={"Add Search Bar"} />
     );
 }

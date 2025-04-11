@@ -1,9 +1,9 @@
 .standardCard {
     display: grid;
     grid-template-rows: 3fr 1fr; /* 'lg' replaced with a valid CSS value */
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    align-content: center;
     width: 100%;
     height: 100%;
     border-width: 1px;
@@ -11,7 +11,7 @@
     max-width: 100%; /* 'sm' replaced with a valid CSS value */
     overflow: hidden;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1); /* 'sm' replaced with a valid shadow */
-    background-color: #f7fafc; /* 'lightgray.100' replaced with a valid color */
+    background-color: #FAFAFA; /* 'lightgray.100' replaced with a valid color */
     transition: transform 0.2s ease, box-shadow 0.2s ease; /* Add smooth hover effect */
     /* min-height: 50vh; */
 }

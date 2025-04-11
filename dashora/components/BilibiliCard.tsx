@@ -65,7 +65,7 @@ export default function BilibiliCard() {
                             padding={4}
                             borderRadius={4}
                             boxShadow="sm"
-                            bg={"#F5F5F5"}
+                            bg={"#FAFAFA"}
                             borderWidth={1}
                             borderColor={"#E2E8F0"}
                             _hover={{ boxShadow: "md", cursor: "pointer" }} // Add hover effect

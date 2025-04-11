@@ -5,6 +5,7 @@ import SampleCard from '@/components/SampleCard';
 import BilibiliCard from '@/components/BilibiliCard';
 import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
+import SearchBar from '@/components/SearchBar';
 
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
@@ -22,7 +23,7 @@ function RenderCards({ cards, setCards }) {
     const newLayouts = { lg: [...layouts.lg], md: [...layouts.md], sm: [...layouts.sm] };
     
     ['lg', 'md', 'sm'].forEach((bp) => {
-      const cols = { lg: 4, md: 2, sm: 1 }[bp];
+      const cols = { lg: 5, md: 3, sm: 1 }[bp];
       const existingItems = newLayouts[bp];
       
       // 4. Check positions until we find empty space
@@ -68,7 +69,7 @@ function RenderCards({ cards, setCards }) {
       className="layout"
       layouts={layouts}
       breakpoints={{ lg: 1200, md: 996, sm: 768 }}
-      cols={{ lg: 4, md: 2, sm: 1 }}
+      cols={{ lg: 5, md: 3, sm: 1 }}
       rowHeight={150}
       isDraggable={true}
       isResizable={true}
@@ -81,6 +82,8 @@ function RenderCards({ cards, setCards }) {
             <AddNewCard title={card.title} content={card.content} cards={cards} setCards={setCards} />
           ) : card.title === "Bilibili" ? (
             <BilibiliCard />
+          ) : card.title === "Search Bar" ? (
+            <SearchBar />
           ) : (
             <SampleCard {...card} />
           )}

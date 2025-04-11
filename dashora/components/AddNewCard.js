@@ -8,6 +8,7 @@ import "./CSS/standardCard.css";
 import "./CSS/clickable.css";
 import DragHandle from './DragHandle';
 import AddBiliBili from './OverlayCards/AddBiliBili';
+import AddSearchBar from './OverlayCards/AddSearchBar';
 
 
 const AddNewCard = ( {title, content, cards, setCards} ) => {
@@ -40,6 +41,7 @@ const AddNewCard = ( {title, content, cards, setCards} ) => {
             <AddCalendar cards={cards} setCards={setCards} onClose={onClose} />
             <AddBiliBili cards={cards} setCards={setCards} onClose={onClose} />
             <AddSample cards={cards} setCards={setCards} onClose={onClose} />
+            <AddSearchBar cards={cards} setCards={setCards} onClose={onClose} />
             </Box>
         )}
         </CustomDialog>
