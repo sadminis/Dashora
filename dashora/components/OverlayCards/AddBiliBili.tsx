@@ -13,7 +13,7 @@ export default function AddBiliBili( {cards, setCards, onClose} : AddBiliBiliPro
             title: "Bilibili", 
             content: "This is a new card.",
             width: 2,
-            height: 4,
+            height: 3,
          };
     
         // Create a copy of the cards array
