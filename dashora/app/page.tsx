@@ -12,6 +12,9 @@ import InitCards from "@/hooks/InitCards";
 // Packages
 import { useState, useEffect } from "react";
 import { Heading } from "@chakra-ui/react";
+import AuthButton from '@/components/AuthButton';
+
+
 
 export default function Home() {
   const [cards, setCards] = useState([]);
@@ -26,6 +29,8 @@ export default function Home() {
         <Heading as="h1" size={["xl", "3xl", "5xl"]} className="text-center" color={"#4A5568"} mt={5} mb={10}>
           Dashora
         </Heading>
+        
+        <AuthButton />
       </header>
 
       <main className="gap-[16px] row-start-2 items-center sm:items-start w-full h-full">
